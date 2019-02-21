@@ -1,0 +1,31 @@
+platform :ios, '10.0'
+
+class PodNames
+  REALM_SWIFT = "RealmSwift"
+end
+
+def project_pods
+  pod PodNames::REALM_SWIFT
+end
+
+def testing_pods
+end
+
+target 'TVShows' do
+  
+  use_modular_headers!
+  inhibit_all_warnings!
+  
+  project_pods
+
+  target 'TVShowsTests' do
+    inherit! :search_paths
+    testing_pods
+  end
+
+  target 'TVShowsUITests' do
+    inherit! :search_paths
+    testing_pods
+  end
+
+end
