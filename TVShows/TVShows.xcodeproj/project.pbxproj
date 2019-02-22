@@ -17,6 +17,10 @@
 		D516BF74221F4098009E7358 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D516BF72221F4098009E7358 /* LaunchScreen.storyboard */; };
 		D516BF7F221F4098009E7358 /* TVShowsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D516BF7E221F4098009E7358 /* TVShowsTests.swift */; };
 		D516BF8A221F4098009E7358 /* TVShowsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D516BF89221F4098009E7358 /* TVShowsUITests.swift */; };
+		D5470A1B222055A600F85243 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5470A1A222055A600F85243 /* Rating.swift */; };
+		D5470A212220565C00F85243 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5470A202220565C00F85243 /* Image.swift */; };
+		D5470A252220580300F85243 /* Externals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5470A242220580300F85243 /* Externals.swift */; };
+		D5470A272220583400F85243 /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5470A262220583400F85243 /* TVShow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +62,10 @@
 		D516BF85221F4098009E7358 /* TVShowsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TVShowsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D516BF89221F4098009E7358 /* TVShowsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsUITests.swift; sourceTree = "<group>"; };
 		D516BF8B221F4098009E7358 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5470A1A222055A600F85243 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		D5470A202220565C00F85243 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		D5470A242220580300F85243 /* Externals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Externals.swift; sourceTree = "<group>"; };
+		D5470A262220583400F85243 /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
 		F467D81841C9FEC2E61353C0 /* Pods-TVShowsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsTests.debug.xcconfig"; path = "Target Support Files/Pods-TVShowsTests/Pods-TVShowsTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,7 +107,6 @@
 				CF685A14CE9B164C770E0C7C /* Pods-TVShowsUITests.debug.xcconfig */,
 				84E16FA76E7662BC8494E3D3 /* Pods-TVShowsUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -138,6 +145,9 @@
 		D516BF68221F4097009E7358 /* TVShows */ = {
 			isa = PBXGroup;
 			children = (
+				D5470A15221F5D6C00F85243 /* Models */,
+				D5470A14221F5D6100F85243 /* Controllers */,
+				D5470A13221F5D5500F85243 /* UIClasses */,
 				D516BF69221F4097009E7358 /* AppDelegate.swift */,
 				D516BF6B221F4097009E7358 /* ViewController.swift */,
 				D516BF6D221F4097009E7358 /* Main.storyboard */,
@@ -164,6 +174,31 @@
 				D516BF8B221F4098009E7358 /* Info.plist */,
 			);
 			path = TVShowsUITests;
+			sourceTree = "<group>";
+		};
+		D5470A13221F5D5500F85243 /* UIClasses */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIClasses;
+			sourceTree = "<group>";
+		};
+		D5470A14221F5D6100F85243 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D5470A15221F5D6C00F85243 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D5470A1A222055A600F85243 /* Rating.swift */,
+				D5470A202220565C00F85243 /* Image.swift */,
+				D5470A242220580300F85243 /* Externals.swift */,
+				D5470A262220583400F85243 /* TVShow.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,7 +404,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5470A212220565C00F85243 /* Image.swift in Sources */,
+				D5470A1B222055A600F85243 /* Rating.swift in Sources */,
+				D5470A272220583400F85243 /* TVShow.swift in Sources */,
 				D516BF6C221F4097009E7358 /* ViewController.swift in Sources */,
+				D5470A252220580300F85243 /* Externals.swift in Sources */,
 				D516BF6A221F4097009E7358 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
