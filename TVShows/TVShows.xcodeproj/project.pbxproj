@@ -23,6 +23,9 @@
 		D5470A7F222068E800F85243 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5470A7D222068E800F85243 /* Main.storyboard */; };
 		D5470A832220713B00F85243 /* TVShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5470A812220713B00F85243 /* TVShowTableViewCell.swift */; };
 		D5470A842220713B00F85243 /* TVShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5470A822220713B00F85243 /* TVShowTableViewCell.xib */; };
+		D5470A8822207D5200F85243 /* TVShowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5470A8722207D5200F85243 /* TVShowsViewController.swift */; };
+		D5470A8A22209EBC00F85243 /* UITabBarController+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5470A8922209EBC00F85243 /* UITabBarController+StatusBar.swift */; };
+		D5470A8C22209ED300F85243 /* UINavigationController+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5470A8B22209ED300F85243 /* UINavigationController+StatusBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,9 @@
 		D5470A7E222068E800F85243 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D5470A812220713B00F85243 /* TVShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowTableViewCell.swift; sourceTree = "<group>"; };
 		D5470A822220713B00F85243 /* TVShowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TVShowTableViewCell.xib; sourceTree = "<group>"; };
+		D5470A8722207D5200F85243 /* TVShowsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVShowsViewController.swift; sourceTree = "<group>"; };
+		D5470A8922209EBC00F85243 /* UITabBarController+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+StatusBar.swift"; sourceTree = "<group>"; };
+		D5470A8B22209ED300F85243 /* UINavigationController+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+StatusBar.swift"; sourceTree = "<group>"; };
 		F467D81841C9FEC2E61353C0 /* Pods-TVShowsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsTests.debug.xcconfig"; path = "Target Support Files/Pods-TVShowsTests/Pods-TVShowsTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +197,7 @@
 		D5470A14221F5D6100F85243 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D5470A8722207D5200F85243 /* TVShowsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -210,6 +217,8 @@
 			isa = PBXGroup;
 			children = (
 				D5470A2922205C0A00F85243 /* UIImageView+Cache.swift */,
+				D5470A8922209EBC00F85243 /* UITabBarController+StatusBar.swift */,
+				D5470A8B22209ED300F85243 /* UINavigationController+StatusBar.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -430,7 +439,10 @@
 				D5470A212220565C00F85243 /* Image.swift in Sources */,
 				D5470A1B222055A600F85243 /* Rating.swift in Sources */,
 				D5470A832220713B00F85243 /* TVShowTableViewCell.swift in Sources */,
+				D5470A8C22209ED300F85243 /* UINavigationController+StatusBar.swift in Sources */,
+				D5470A8822207D5200F85243 /* TVShowsViewController.swift in Sources */,
 				D5470A272220583400F85243 /* TVShow.swift in Sources */,
+				D5470A8A22209EBC00F85243 /* UITabBarController+StatusBar.swift in Sources */,
 				D5470A252220580300F85243 /* Externals.swift in Sources */,
 				D5470A2A22205C0A00F85243 /* UIImageView+Cache.swift in Sources */,
 				D516BF6A221F4097009E7358 /* AppDelegate.swift in Sources */,
