@@ -46,7 +46,6 @@
         <!--TV Shows-->
         <scene sceneID="dXS-wH-1oD">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PfA-WN-YWs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController title="TV Shows" id="fbD-a7-SDf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Shows" image="Album" id="Qqu-dt-CuZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2bM-kf-JrY">
@@ -64,6 +63,7 @@
                         <segue destination="kr0-hy-gsB" kind="relationship" relationship="rootViewController" id="LXq-M5-XH7"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PfA-WN-YWs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-850" y="878"/>
         </scene>
@@ -74,7 +74,20 @@
                     <view key="view" contentMode="scaleToFill" id="kep-L6-2dT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nFy-Pb-ypb">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nFy-Pb-ypb" firstAttribute="leading" secondItem="IFd-Kk-qXo" secondAttribute="leading" id="0p7-Y7-0fO"/>
+                            <constraint firstItem="nFy-Pb-ypb" firstAttribute="width" secondItem="kep-L6-2dT" secondAttribute="width" id="YqT-I8-FpT"/>
+                            <constraint firstItem="nFy-Pb-ypb" firstAttribute="top" secondItem="IFd-Kk-qXo" secondAttribute="top" id="bQX-uh-UJ1"/>
+                            <constraint firstItem="nFy-Pb-ypb" firstAttribute="trailing" secondItem="IFd-Kk-qXo" secondAttribute="trailing" id="tlw-Fo-q4e"/>
+                            <constraint firstItem="IFd-Kk-qXo" firstAttribute="bottom" secondItem="nFy-Pb-ypb" secondAttribute="bottom" id="vfC-GD-RKd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="IFd-Kk-qXo"/>
                     </view>
                     <navigationItem key="navigationItem" id="DvY-Ej-HaW"/>
@@ -82,6 +95,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="_screenType" value="tvShows"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="showsTableView" destination="nFy-Pb-ypb" id="9io-4P-0gC"/>
                         <segue destination="cHO-Ck-S8i" kind="showDetail" id="v6J-j7-RaH"/>
                     </connections>
                 </viewController>
@@ -120,7 +134,20 @@
                     <view key="view" contentMode="scaleToFill" id="tdF-hx-lEG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e22-ab-cRR">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nB9-xK-6an" firstAttribute="bottom" secondItem="e22-ab-cRR" secondAttribute="bottom" id="au7-Ub-ThW"/>
+                            <constraint firstItem="e22-ab-cRR" firstAttribute="leading" secondItem="nB9-xK-6an" secondAttribute="leading" id="fE9-y5-12J"/>
+                            <constraint firstItem="e22-ab-cRR" firstAttribute="trailing" secondItem="nB9-xK-6an" secondAttribute="trailing" id="iJp-t5-kWe"/>
+                            <constraint firstItem="e22-ab-cRR" firstAttribute="top" secondItem="nB9-xK-6an" secondAttribute="top" id="mnY-Pe-Dmj"/>
+                            <constraint firstItem="e22-ab-cRR" firstAttribute="width" secondItem="tdF-hx-lEG" secondAttribute="width" id="tDb-fj-kL2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nB9-xK-6an"/>
                     </view>
                     <navigationItem key="navigationItem" id="WHA-gb-Rj5"/>
@@ -133,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkq-iv-zJA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="113" y="1645"/>
+            <point key="canvasLocation" x="112.8" y="1644.8275862068967"/>
         </scene>
     </scenes>
     <resources>
