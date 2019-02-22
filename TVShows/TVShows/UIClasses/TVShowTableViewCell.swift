@@ -9,16 +9,24 @@
 import UIKit
 
 class TVShowTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
+  
+  static let reuseIdentifier = String(describing: TVShowTableViewCell.self)
+  static let nibName = String(describing: TVShowTableViewCell.self)
+  
+  @IBOutlet weak var showThumbImageView: UIImageView!
+  @IBOutlet weak var showTitleLabel: UILabel!  
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    selectionStyle = .none
+  }
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
+  }
+  
+  func load(tvShow: TVShow) {
+    showThumbImageView.loadImage(fromURL: tvShow.image.medium)
+    showTitleLabel.text = tvShow.name
+  }  
 }

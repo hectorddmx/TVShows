@@ -52,6 +52,10 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="showThumbImageView" destination="pHD-27-AmL" id="k4r-sP-ptP"/>
+                <outlet property="showTitleLabel" destination="4NU-GU-oxW" id="a4f-NR-QWD"/>
+            </connections>
             <point key="canvasLocation" x="137.59999999999999" y="153.82308845577214"/>
         </tableViewCell>
     </objects>
