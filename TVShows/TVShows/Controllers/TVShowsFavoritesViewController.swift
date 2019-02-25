@@ -10,7 +10,7 @@
 import UIKit
 
 @IBDesignable
-class TVShowsFavoritesViewController: UIViewController {
+class TVShowsFavoritesViewController: BaseViewController {
   
   var favorites: [TVShowStore] = []
   
@@ -30,8 +30,8 @@ class TVShowsFavoritesViewController: UIViewController {
     return .lightContent
   }
   
-  private func prepareNavigationBar() {
-    navigationController?.navigationBar.prefersLargeTitles = true
+  override func prepareNavigationBar() {
+    super.prepareNavigationBar()
     navigationItem.title = "Favorites"
   }
   
@@ -62,7 +62,6 @@ class TVShowsFavoritesViewController: UIViewController {
 
 // MARK: - Delegates
 
-
 extension TVShowsFavoritesViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -81,7 +80,9 @@ extension TVShowsFavoritesViewController: UITableViewDelegate {
       title: "Delete"
     ) {
       [weak self] (rowAction, indexPath) in
-      if let self = self {
+      guard let self = self else { return }
+      self.showActionAlert(vc: self, title: "Delete favorite?") { [weak self] _ in
+        guard let self = self else { return }
         self.removeFavorite(tableView: tableView, indexPath: indexPath)
       }
     }

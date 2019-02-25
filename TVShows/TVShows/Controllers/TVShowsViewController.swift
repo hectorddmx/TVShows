@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class TVShowsViewController: UIViewController {
+class TVShowsViewController: BaseViewController {
   
   let networkingService = NetworkingService()
   
@@ -57,13 +57,9 @@ class TVShowsViewController: UIViewController {
   }
   
   // MARK: - Configuration
-  
-  override var preferredStatusBarStyle: UIStatusBarStyle {
-    return .lightContent
-  }
-  
-  private func prepareNavigationBar() {
-    navigationController?.navigationBar.prefersLargeTitles = true
+
+  override func prepareNavigationBar() {
+    super.prepareNavigationBar()
     navigationItem.title = "TV Shows"
   }
   
@@ -89,6 +85,10 @@ class TVShowsViewController: UIViewController {
   }
   
   // MARK: - Navigation
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+  }
 }
 
 // MARK: - Delegates
@@ -100,28 +100,34 @@ extension TVShowsViewController: UITableViewDelegate {
     
   }
   
+  fileprivate func buildUnfavoriteAction() -> [UITableViewRowAction]? {
+    let unfavoriteAction = UITableViewRowAction(
+    style: .normal, title: "Delete") { [weak self] (rowAction, indexPath) in
+      guard let self = self else { return }
+      self.showActionAlert(vc: self, title: "Delete favorite?") { [weak self] _ in
+        guard let self = self else { return }
+        self.currentTVShows[indexPath.row].setFavoriteStatus(favorite: false)
+      }
+    }
+    unfavoriteAction.backgroundColor = UIColor(rgb: 0xFF3A30)
+    return [unfavoriteAction]
+  }
+  
+  fileprivate func buildFavoriteAction() -> [UITableViewRowAction]? {
+    let favoriteAction = UITableViewRowAction(
+    style: .normal, title: "Favorite") { [weak self] (rowAction, indexPath) in
+      guard let self = self else { return }
+      self.currentTVShows[indexPath.row].setFavoriteStatus(favorite: true)
+    }
+    favoriteAction.backgroundColor = UIColor(rgb: 0x7ED321)
+    return [favoriteAction]
+  }
+  
   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-
     if currentTVShows[indexPath.row].isFavorite {
-      let unfavoriteAction = UITableViewRowAction(
-        style: .normal, title: "Delete") { [weak self] (rowAction, indexPath) in
-        if let self = self {
-          self.currentTVShows[indexPath.row].setFavoriteStatus(favorite: false)
-        }
-      }
-      unfavoriteAction.backgroundColor = UIColor(rgb: 0xFF3A30)
-      return [unfavoriteAction]
-
+      return buildUnfavoriteAction()
     } else {
-      let favoriteAction = UITableViewRowAction(
-        style: .normal, title: "Favorite") { [weak self] (rowAction, indexPath) in
-        if let self = self {
-          self.currentTVShows[indexPath.row].setFavoriteStatus(favorite: true)
-        }
-      }
-      favoriteAction.backgroundColor = UIColor(rgb: 0x7ED321)
-
-      return [favoriteAction]
+      return buildFavoriteAction()
     }
   }
 }
