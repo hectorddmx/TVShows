@@ -66,6 +66,17 @@ class TVShowStore: Object {
       realm.add(self)
     }
   }
+
+  static func checkFavoriteStatus(showID: Int) -> Bool {
+    let realm = try! Realm()
+
+    guard
+      let _ = realm.object(ofType: TVShowStore.self, forPrimaryKey: showID)
+      else { return false }
+
+    return true
+
+  }
   
   static func deleteShow(showID: Int) {
     let realm = try! Realm()

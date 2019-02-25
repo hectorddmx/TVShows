@@ -22,24 +22,23 @@ class TVShowsViewController: UIViewController {
     case loading
     case error(Error)
     case populated([TVShow])
-    
-    var currentTVShows: [TVShow] {
-      switch self {
-      case .populated(let tvShows): return tvShows
-      default: return []
-      }
-    }
   }
+  var currentTVShows: [TVShow] = []
+
   public var screenState: ScreenState = ScreenState.empty {
     didSet {
+      switch screenState {
+      case .populated(let tvShows): currentTVShows = tvShows
+      default: currentTVShows = []
+      }
       showsTableView.reloadData()
     }
   }
   
   func loadShows() {
     networkingService.fetchTVShows() { [weak self] response in
-      guard let `self` = self else { return }
-      self.update(response: response)
+      guard let strongSelf = self else { return }
+      strongSelf.update(response: response)
     }
   }
   
@@ -101,9 +100,30 @@ extension TVShowsViewController: UITableViewDelegate {
     
   }
   
-//  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//    
-//  }
+  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+
+    if currentTVShows[indexPath.row].isFavorite {
+      let unfavoriteAction = UITableViewRowAction(
+        style: .normal, title: "Delete") { [weak self] (rowAction, indexPath) in
+        if let strongSelf = self {
+          strongSelf.currentTVShows[indexPath.row].setFavoriteStatus(favorite: false)
+        }
+      }
+      unfavoriteAction.backgroundColor = .red
+      return [unfavoriteAction]
+
+    } else {
+      let favoriteAction = UITableViewRowAction(
+        style: .normal, title: "Favorite") { [weak self] (rowAction, indexPath) in
+        if let strongSelf = self {
+          strongSelf.currentTVShows[indexPath.row].setFavoriteStatus(favorite: true)
+        }
+      }
+      favoriteAction.backgroundColor = .green
+
+      return [favoriteAction]
+    }
+  }
   
 //  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 //
@@ -126,7 +146,7 @@ extension TVShowsViewController: UITableViewDelegate {
 extension TVShowsViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return screenState.currentTVShows.count
+    return currentTVShows.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -136,7 +156,7 @@ extension TVShowsViewController: UITableViewDataSource {
         for: indexPath
         ) as? TVShowTableViewCell
       else { return UITableViewCell() }
-    showCell.load(tvShow: screenState.currentTVShows[indexPath.row])
+    showCell.load(tvShow: currentTVShows[indexPath.row])
     return showCell
   }
   

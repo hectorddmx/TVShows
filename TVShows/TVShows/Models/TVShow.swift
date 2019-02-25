@@ -42,33 +42,41 @@ struct TVShow: Codable {
   let updated: Int?
   let url: String?
   /// CONFIG
-  var favorite: Bool = false {
-    didSet {
-      if favorite {
-        let show = TVShowStore.init(
-          id: id ?? 0,
-          imbd: externals?.imdb ?? "",
-          imageMedium: image?.medium ?? "",
-          imageOriginal: image?.original ?? "",
-          language: language ?? "",
-          name: name ?? "",
-          premiered: premiered ?? "",
-          ratingAverage: rating?.average ?? 0.0,
-          runtime: runtime ?? 0,
-          status: status ?? "",
-          summary: summary ?? "",
-          updated: updated ?? 0,
-          url: url ?? ""
-        )
-        show.saveShow()
-      } else {
-        guard let id = id else {
-          // TODO: Send error
-          return
-        }
-        TVShowStore.deleteShow(showID: id)
-      }
+  var isFavorite: Bool {
+    return TVShowStore.checkFavoriteStatus(showID: id ?? 0)
+  }
+
+  func setFavoriteStatus(favorite: Bool) {
+    if favorite {
+      saveShow()
+    } else {
+      deleteShow()
     }
+  }
+
+  private func deleteShow() {
+    if let id = id {
+      TVShowStore.deleteShow(showID: id)
+    }
+  }
+
+  private func saveShow() {
+    let show = TVShowStore.init(
+      id: id ?? 0,
+      imbd: externals?.imdb ?? "",
+      imageMedium: image?.medium ?? "",
+      imageOriginal: image?.original ?? "",
+      language: language ?? "",
+      name: name ?? "",
+      premiered: premiered ?? "",
+      ratingAverage: rating?.average ?? 0.0,
+      runtime: runtime ?? 0,
+      status: status ?? "",
+      summary: summary ?? "",
+      updated: updated ?? 0,
+      url: url ?? ""
+    )
+    show.saveShow()
   }
 }
 
