@@ -26,10 +26,6 @@ class TVShowsFavoritesViewController: BaseViewController {
   
   // MARK: - Configuration
   
-  override var preferredStatusBarStyle: UIStatusBarStyle {
-    return .lightContent
-  }
-  
   override func prepareNavigationBar() {
     super.prepareNavigationBar()
     navigationItem.title = "Favorites"
