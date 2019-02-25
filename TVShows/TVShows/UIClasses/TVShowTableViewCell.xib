@@ -20,15 +20,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pHD-27-AmL">
-                        <rect key="frame" x="16" y="7" width="56.5" height="56.5"/>
+                        <rect key="frame" x="16" y="7" width="55.5" height="55.5"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="56.5" id="Ye0-1f-47I"/>
-                            <constraint firstAttribute="height" constant="56.5" id="wnz-5a-sT6"/>
+                            <constraint firstAttribute="width" constant="55.5" id="Xes-nX-fFm"/>
+                            <constraint firstAttribute="height" constant="55.5" id="cM3-ox-ZaA"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4NU-GU-oxW">
-                        <rect key="frame" x="88.5" y="24.5" width="171.5" height="21"/>
+                        <rect key="frame" x="87.5" y="24.5" width="172.5" height="21"/>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -43,7 +43,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="pHD-27-AmL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="5N5-Px-zZw"/>
-                    <constraint firstAttribute="bottom" secondItem="pHD-27-AmL" secondAttribute="bottom" constant="6" id="Eaq-0O-zTg"/>
+                    <constraint firstAttribute="bottom" secondItem="pHD-27-AmL" secondAttribute="bottom" constant="7" id="Eaq-0O-zTg"/>
                     <constraint firstItem="dt2-Th-0ww" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="JO0-oK-fC6"/>
                     <constraint firstItem="4NU-GU-oxW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="KRg-CL-iTX"/>
                     <constraint firstItem="dt2-Th-0ww" firstAttribute="leading" secondItem="4NU-GU-oxW" secondAttribute="trailing" constant="16" id="Ku6-bw-asP"/>
