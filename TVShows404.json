@@ -1,0 +1,11 @@
+{
+  "code": 0,
+  "message": "Page not found.",
+  "name": "Not Found",
+  "previous": {
+    "code": 0,
+    "message": "Unable to resolve the request \"showsw\".",
+    "name": "Invalid Route"
+  },
+  "status": 404
+}
