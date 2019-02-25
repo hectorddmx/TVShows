@@ -37,8 +37,8 @@ class TVShowsViewController: UIViewController {
   
   func loadShows() {
     networkingService.fetchTVShows() { [weak self] response in
-      guard let strongSelf = self else { return }
-      strongSelf.update(response: response)
+      guard let self = self else { return }
+      self.update(response: response)
     }
   }
   
@@ -105,8 +105,8 @@ extension TVShowsViewController: UITableViewDelegate {
     if currentTVShows[indexPath.row].isFavorite {
       let unfavoriteAction = UITableViewRowAction(
         style: .normal, title: "Delete") { [weak self] (rowAction, indexPath) in
-        if let strongSelf = self {
-          strongSelf.currentTVShows[indexPath.row].setFavoriteStatus(favorite: false)
+        if let self = self {
+          self.currentTVShows[indexPath.row].setFavoriteStatus(favorite: false)
         }
       }
       unfavoriteAction.backgroundColor = .red
@@ -115,8 +115,8 @@ extension TVShowsViewController: UITableViewDelegate {
     } else {
       let favoriteAction = UITableViewRowAction(
         style: .normal, title: "Favorite") { [weak self] (rowAction, indexPath) in
-        if let strongSelf = self {
-          strongSelf.currentTVShows[indexPath.row].setFavoriteStatus(favorite: true)
+        if let self = self {
+          self.currentTVShows[indexPath.row].setFavoriteStatus(favorite: true)
         }
       }
       favoriteAction.backgroundColor = .green
