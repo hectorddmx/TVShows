@@ -35,6 +35,7 @@
 		D5B8B5332223BF7B00CEF223 /* TVShowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8B5322223BF7B00CEF223 /* TVShowDetailViewController.swift */; };
 		D5B8B5352223D5C400CEF223 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8B5342223D5C400CEF223 /* BaseViewController.swift */; };
 		D5B8B5372223DBF800CEF223 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8B5362223DBF800CEF223 /* Colors.swift */; };
+		D5B8B5392223EF0300CEF223 /* String+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8B5382223EF0300CEF223 /* String+HTML.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		D5B8B5322223BF7B00CEF223 /* TVShowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDetailViewController.swift; sourceTree = "<group>"; };
 		D5B8B5342223D5C400CEF223 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D5B8B5362223DBF800CEF223 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		D5B8B5382223EF0300CEF223 /* String+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HTML.swift"; sourceTree = "<group>"; };
 		F467D81841C9FEC2E61353C0 /* Pods-TVShowsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsTests.debug.xcconfig"; path = "Target Support Files/Pods-TVShowsTests/Pods-TVShowsTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -245,6 +247,7 @@
 				D5470A8922209EBC00F85243 /* UITabBarController+StatusBar.swift */,
 				D5470A8B22209ED300F85243 /* UINavigationController+StatusBar.swift */,
 				D5B8B52B2223B7CC00CEF223 /* UIColor+Hex.swift */,
+				D5B8B5382223EF0300CEF223 /* String+HTML.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				D5470A272220583400F85243 /* TVShow.swift in Sources */,
 				D5470A8A22209EBC00F85243 /* UITabBarController+StatusBar.swift in Sources */,
 				D5470A252220580300F85243 /* Externals.swift in Sources */,
+				D5B8B5392223EF0300CEF223 /* String+HTML.swift in Sources */,
 				D5B8B52C2223B7CC00CEF223 /* UIColor+Hex.swift in Sources */,
 				D5B8B5372223DBF800CEF223 /* Colors.swift in Sources */,
 				D5B8B5332223BF7B00CEF223 /* TVShowDetailViewController.swift in Sources */,

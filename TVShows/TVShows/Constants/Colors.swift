@@ -11,4 +11,7 @@ import UIKit
 enum Colors: Int {
   case unfavorite = 0xFF3A30
   case favorite = 0x7ED321
+  
+  case showListingHeader = 0x661fff
+  case showDetailHeader = 0xffb41f
 }
