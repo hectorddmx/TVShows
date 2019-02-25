@@ -30,6 +30,12 @@
 		D55343102223736600A39EE6 /* TVShowsFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D553430F2223736600A39EE6 /* TVShowsFavoritesViewController.swift */; };
 		D59F2BAB2223966E00666224 /* TVShowStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59F2BAA2223966E00666224 /* TVShowStore.swift */; };
 		D5B11C122220B865006A2158 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B11C112220B865006A2158 /* NetworkingService.swift */; };
+		D5B8B52C2223B7CC00CEF223 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8B52B2223B7CC00CEF223 /* UIColor+Hex.swift */; };
+		D5B8B5312223BF0000CEF223 /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8B5302223BF0000CEF223 /* Segues.swift */; };
+		D5B8B5332223BF7B00CEF223 /* TVShowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8B5322223BF7B00CEF223 /* TVShowDetailViewController.swift */; };
+		D5B8B5352223D5C400CEF223 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8B5342223D5C400CEF223 /* BaseViewController.swift */; };
+		D5B8B5372223DBF800CEF223 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8B5362223DBF800CEF223 /* Colors.swift */; };
+		D5B8B5392223EF0300CEF223 /* String+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8B5382223EF0300CEF223 /* String+HTML.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +90,12 @@
 		D553430F2223736600A39EE6 /* TVShowsFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsFavoritesViewController.swift; sourceTree = "<group>"; };
 		D59F2BAA2223966E00666224 /* TVShowStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowStore.swift; sourceTree = "<group>"; };
 		D5B11C112220B865006A2158 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		D5B8B52B2223B7CC00CEF223 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		D5B8B5302223BF0000CEF223 /* Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
+		D5B8B5322223BF7B00CEF223 /* TVShowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDetailViewController.swift; sourceTree = "<group>"; };
+		D5B8B5342223D5C400CEF223 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		D5B8B5362223DBF800CEF223 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		D5B8B5382223EF0300CEF223 /* String+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HTML.swift"; sourceTree = "<group>"; };
 		F467D81841C9FEC2E61353C0 /* Pods-TVShowsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsTests.debug.xcconfig"; path = "Target Support Files/Pods-TVShowsTests/Pods-TVShowsTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +175,7 @@
 		D516BF68221F4097009E7358 /* TVShows */ = {
 			isa = PBXGroup;
 			children = (
+				D5B8B52F2223BEF200CEF223 /* Constants */,
 				D59F2BA7222395F300666224 /* Stores */,
 				D5B11C102220B837006A2158 /* Networking */,
 				D5470A2822205A9400F85243 /* Extensions */,
@@ -209,6 +222,8 @@
 			children = (
 				D5470A8722207D5200F85243 /* TVShowsViewController.swift */,
 				D553430F2223736600A39EE6 /* TVShowsFavoritesViewController.swift */,
+				D5B8B5322223BF7B00CEF223 /* TVShowDetailViewController.swift */,
+				D5B8B5342223D5C400CEF223 /* BaseViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -231,6 +246,8 @@
 				D5470A2922205C0A00F85243 /* UIImageView+Cache.swift */,
 				D5470A8922209EBC00F85243 /* UITabBarController+StatusBar.swift */,
 				D5470A8B22209ED300F85243 /* UINavigationController+StatusBar.swift */,
+				D5B8B52B2223B7CC00CEF223 /* UIColor+Hex.swift */,
+				D5B8B5382223EF0300CEF223 /* String+HTML.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -260,6 +277,15 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		D5B8B52F2223BEF200CEF223 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				D5B8B5302223BF0000CEF223 /* Segues.swift */,
+				D5B8B5362223DBF800CEF223 /* Colors.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -271,6 +297,7 @@
 				D516BF62221F4097009E7358 /* Sources */,
 				D516BF63221F4097009E7358 /* Frameworks */,
 				D516BF64221F4097009E7358 /* Resources */,
+				D5B8B52E2223BAC500CEF223 /* Reveal for device */,
 			);
 			buildRules = (
 			);
@@ -457,6 +484,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D5B8B52E2223BAC500CEF223 /* Reveal for device */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Reveal for device";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "REVEAL_APP_PATH=$(mdfind kMDItemCFBundleIdentifier=\"com.ittybittyapps.Reveal2\" | head -n 1)\nBUILD_SCRIPT_PATH=\"${REVEAL_APP_PATH}/Contents/SharedSupport/Scripts/reveal_server_build_phase.sh\"\nif [ \"${REVEAL_APP_PATH}\" -a -e \"${BUILD_SCRIPT_PATH}\" ]; then\n\"${BUILD_SCRIPT_PATH}\"\nelse\necho \"Reveal Server not loaded: Cannot find a compatible Reveal app.\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -467,12 +512,18 @@
 				D5470A212220565C00F85243 /* Image.swift in Sources */,
 				D5470A1B222055A600F85243 /* Rating.swift in Sources */,
 				D59F2BAB2223966E00666224 /* TVShowStore.swift in Sources */,
+				D5B8B5312223BF0000CEF223 /* Segues.swift in Sources */,
 				D5470A832220713B00F85243 /* TVShowTableViewCell.swift in Sources */,
+				D5B8B5352223D5C400CEF223 /* BaseViewController.swift in Sources */,
 				D5470A8C22209ED300F85243 /* UINavigationController+StatusBar.swift in Sources */,
 				D5470A8822207D5200F85243 /* TVShowsViewController.swift in Sources */,
 				D5470A272220583400F85243 /* TVShow.swift in Sources */,
 				D5470A8A22209EBC00F85243 /* UITabBarController+StatusBar.swift in Sources */,
 				D5470A252220580300F85243 /* Externals.swift in Sources */,
+				D5B8B5392223EF0300CEF223 /* String+HTML.swift in Sources */,
+				D5B8B52C2223B7CC00CEF223 /* UIColor+Hex.swift in Sources */,
+				D5B8B5372223DBF800CEF223 /* Colors.swift in Sources */,
+				D5B8B5332223BF7B00CEF223 /* TVShowDetailViewController.swift in Sources */,
 				D55343102223736600A39EE6 /* TVShowsFavoritesViewController.swift in Sources */,
 				D5B11C122220B865006A2158 /* NetworkingService.swift in Sources */,
 				D5470A2A22205C0A00F85243 /* UIImageView+Cache.swift in Sources */,

@@ -9,10 +9,10 @@
 
 import UIKit
 
-@IBDesignable
-class TVShowsFavoritesViewController: UIViewController {
+class TVShowsFavoritesViewController: BaseViewController {
   
   var favorites: [TVShowStore] = []
+  var tvShow: TVShow?
   
   // MARK: - Outlets
   @IBOutlet weak var showsTableView: UITableView!
@@ -26,12 +26,8 @@ class TVShowsFavoritesViewController: UIViewController {
   
   // MARK: - Configuration
   
-  override var preferredStatusBarStyle: UIStatusBarStyle {
-    return .lightContent
-  }
-  
-  private func prepareNavigationBar() {
-    navigationController?.navigationBar.prefersLargeTitles = true
+  override func prepareNavigationBar() {
+    super.prepareNavigationBar()
     navigationItem.title = "Favorites"
   }
   
@@ -58,15 +54,34 @@ class TVShowsFavoritesViewController: UIViewController {
   }
 
   // MARK: - Navigation
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if
+      segue.identifier == Segues.tvShowDetailSegue.rawValue,
+      let destination = segue.destination as? TVShowDetailViewController {
+      destination.tvShow = tvShow
+    }
+  }
 }
 
 // MARK: - Delegates
 
-
 extension TVShowsFavoritesViewController: UITableViewDelegate {
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let tvShowStore: TVShowStore = favorites[indexPath.row]    
+    self.tvShow = tvShowStore.buildTVShowModel()
+    performSegue(withIdentifier: Segues.tvShowDetailSegue.rawValue, sender: self)
+  }
+  
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     
+  }
+  
+  fileprivate func removeFavorite(tableView: UITableView, indexPath: IndexPath) {
+    self.favorites[indexPath.row].deleteFavorite()
+    self.favorites.remove(at: indexPath.row)
+    tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
   }
   
   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -75,13 +90,13 @@ extension TVShowsFavoritesViewController: UITableViewDelegate {
       title: "Delete"
     ) {
       [weak self] (rowAction, indexPath) in
-      if let self = self {
-        self.favorites[indexPath.row].deleteFavorite()
-        self.favorites.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+      guard let self = self else { return }
+      self.showActionAlert(vc: self) { [weak self] _ in
+        guard let self = self else { return }
+        self.removeFavorite(tableView: tableView, indexPath: indexPath)
       }
     }
-    unfavoriteAction.backgroundColor = .red
+    unfavoriteAction.backgroundColor = UIColor(rgb: Colors.unfavorite.rawValue)
     return [unfavoriteAction]
   }
 }

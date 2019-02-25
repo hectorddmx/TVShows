@@ -12,8 +12,14 @@ import UIKit
 
 enum NetworkError: Error {
   case invalidURL
-  case timeout
+  case generic
   
+  func getMessage() -> String {
+    switch self {
+    case .invalidURL: return "The URL is invalid"
+    case .generic: return "An error occurred while fetching data. Do you want to try again?"
+    }
+  }
 }
 
 class NetworkingService {
@@ -37,7 +43,6 @@ class NetworkingService {
       return
     }
     
-    // 611
     url = url.appendingPathComponent(pathComponent)
     task?.cancel()
     task = URLSession.shared.dataTask(with: url) {

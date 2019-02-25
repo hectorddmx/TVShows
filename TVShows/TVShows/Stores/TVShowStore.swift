@@ -119,6 +119,28 @@ class TVShowStore: Object {
     }
   }
   
+  func buildTVShowModel() -> TVShow {
+    let externals: Externals = Externals.init(imdb: self.imbd)
+    let image: Image = Image(medium: self.imageMedium, original: self.imageOriginal)
+    let rating: Rating = Rating(average: self.ratingAverage)
+    let tvShow: TVShow = TVShow.init(
+      id: self.id,
+      externals: externals,
+      genres: nil,
+      image: image,
+      language: self.language,
+      name: self.name,
+      premiered: self.premiered,
+      rating: rating,
+      runtime: self.runtime,
+      status: self.status,
+      summary: self.summary,
+      updated: self.updated,
+      url: self.url
+    )
+    return tvShow
+  }
+  
   override var description: String {
     return """
     TVShowStore {

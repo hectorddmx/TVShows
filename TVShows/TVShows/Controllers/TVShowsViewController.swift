@@ -8,8 +8,7 @@
 
 import UIKit
 
-@IBDesignable
-class TVShowsViewController: UIViewController {
+class TVShowsViewController: BaseViewController {
   
   let networkingService = NetworkingService()
   
@@ -24,12 +23,22 @@ class TVShowsViewController: UIViewController {
     case populated([TVShow])
   }
   var currentTVShows: [TVShow] = []
+  var tvShow: TVShow?
 
   public var screenState: ScreenState = ScreenState.empty {
     didSet {
       switch screenState {
-      case .populated(let tvShows): currentTVShows = tvShows
-      default: currentTVShows = []
+      case .populated(let tvShows):
+        currentTVShows = tvShows
+      case .error(let error):
+        handleErrorMessage(vc: self, error: error) {
+          [weak self] _ in
+          guard let self = self else { return }
+          self.loadShows()
+        }
+        fallthrough
+      default:
+        currentTVShows = []
       }
       showsTableView.reloadData()
     }
@@ -57,13 +66,9 @@ class TVShowsViewController: UIViewController {
   }
   
   // MARK: - Configuration
-  
-  override var preferredStatusBarStyle: UIStatusBarStyle {
-    return .lightContent
-  }
-  
-  private func prepareNavigationBar() {
-    navigationController?.navigationBar.prefersLargeTitles = true
+
+  override func prepareNavigationBar() {
+    super.prepareNavigationBar()
     navigationItem.title = "TV Shows"
   }
   
@@ -89,6 +94,13 @@ class TVShowsViewController: UIViewController {
   }
   
   // MARK: - Navigation
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if
+      segue.identifier == Segues.tvShowDetailSegue.rawValue,
+      let destination = segue.destination as? TVShowDetailViewController {
+      destination.tvShow = tvShow
+    }
+  }
 }
 
 // MARK: - Delegates
@@ -96,32 +108,43 @@ class TVShowsViewController: UIViewController {
 
 extension TVShowsViewController: UITableViewDelegate {
   
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tvShow = currentTVShows[indexPath.row]
+    performSegue(withIdentifier: Segues.tvShowDetailSegue.rawValue, sender: self)
+  }
+  
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     
   }
   
+  fileprivate func buildUnfavoriteAction() -> [UITableViewRowAction]? {
+    let unfavoriteAction = UITableViewRowAction(
+    style: .normal, title: "Delete") { [weak self] (rowAction, indexPath) in
+      guard let self = self else { return }
+      self.showActionAlert(vc: self) { [weak self] _ in
+        guard let self = self else { return }
+        self.currentTVShows[indexPath.row].setFavoriteStatus(favorite: false)
+      }
+    }
+    unfavoriteAction.backgroundColor = UIColor(rgb: Colors.unfavorite.rawValue)
+    return [unfavoriteAction]
+  }
+  
+  fileprivate func buildFavoriteAction() -> [UITableViewRowAction]? {
+    let favoriteAction = UITableViewRowAction(
+    style: .normal, title: "Favorite") { [weak self] (rowAction, indexPath) in
+      guard let self = self else { return }
+      self.currentTVShows[indexPath.row].setFavoriteStatus(favorite: true)
+    }
+    favoriteAction.backgroundColor = UIColor(rgb: Colors.favorite.rawValue)
+    return [favoriteAction]
+  }
+  
   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-
     if currentTVShows[indexPath.row].isFavorite {
-      let unfavoriteAction = UITableViewRowAction(
-        style: .normal, title: "Delete") { [weak self] (rowAction, indexPath) in
-        if let self = self {
-          self.currentTVShows[indexPath.row].setFavoriteStatus(favorite: false)
-        }
-      }
-      unfavoriteAction.backgroundColor = .red
-      return [unfavoriteAction]
-
+      return buildUnfavoriteAction()
     } else {
-      let favoriteAction = UITableViewRowAction(
-        style: .normal, title: "Favorite") { [weak self] (rowAction, indexPath) in
-        if let self = self {
-          self.currentTVShows[indexPath.row].setFavoriteStatus(favorite: true)
-        }
-      }
-      favoriteAction.backgroundColor = .green
-
-      return [favoriteAction]
+      return buildFavoriteAction()
     }
   }
 }

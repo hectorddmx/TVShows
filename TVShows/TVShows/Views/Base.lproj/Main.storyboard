@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bKx-kH-FtA">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -28,20 +28,83 @@
             </objects>
             <point key="canvasLocation" x="-369" y="128"/>
         </scene>
-        <!--View Controller-->
+        <!--Show Detail View Controller-->
         <scene sceneID="saP-dH-ohv">
             <objects>
-                <viewController id="cHO-Ck-S8i" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TVShowDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cHO-Ck-S8i" customClass="TVShowDetailViewController" customModule="TVShows" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Ft-dx-ENp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="0sW-Bw-SA8">
+                                <rect key="frame" x="44" y="40" width="724" height="282"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fqC-sx-xfc">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="282"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hH7-4f-XKd">
+                                        <rect key="frame" x="371" y="0.0" width="353" height="282"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="swO-zS-S1d">
+                                                <rect key="frame" x="17.666666666666686" y="0.0" width="317.66666666666669" height="44"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjf-uP-2Uq">
+                                                        <rect key="frame" x="0.0" y="0.0" width="280.33333333333331" height="44"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="44" id="aMz-dR-hRr"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                                        <color key="tintColor" red="0.1019607843" green="0.4431372549" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" title="IMDb: ">
+                                                            <color key="titleColor" red="0.038496572520000001" green="0.44381442669999999" blue="0.80874699350000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="openIMDBAction:" destination="cHO-Ck-S8i" eventType="touchUpInside" id="PWs-yj-62B"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBC-H5-5JH">
+                                                        <rect key="frame" x="280.33333333333331" y="0.0" width="37.333333333333314" height="44"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CjY-Vq-mi7">
+                                                <rect key="frame" x="17.666666666666686" y="44" width="317.66666666666669" height="238"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="swO-zS-S1d" firstAttribute="width" secondItem="CjY-Vq-mi7" secondAttribute="width" id="2cT-HS-zbZ"/>
+                                            <constraint firstItem="CjY-Vq-mi7" firstAttribute="width" secondItem="hH7-4f-XKd" secondAttribute="width" multiplier="0.9" id="WF6-q6-J2j"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <variation key="heightClass=compact-widthClass=compact" axis="horizontal"/>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PUv-xt-gAd" firstAttribute="trailing" secondItem="0sW-Bw-SA8" secondAttribute="trailing" id="7sq-bA-A6o"/>
+                            <constraint firstItem="0sW-Bw-SA8" firstAttribute="top" secondItem="PUv-xt-gAd" secondAttribute="top" constant="8" id="J2k-WO-A0E"/>
+                            <constraint firstItem="PUv-xt-gAd" firstAttribute="bottom" secondItem="0sW-Bw-SA8" secondAttribute="bottom" id="QGK-dC-UkW"/>
+                            <constraint firstItem="0sW-Bw-SA8" firstAttribute="leading" secondItem="PUv-xt-gAd" secondAttribute="leading" id="nZj-MY-iWu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PUv-xt-gAd"/>
                     </view>
+                    <connections>
+                        <outlet property="imdbButton" destination="wjf-uP-2Uq" id="Ygi-wT-3HU"/>
+                        <outlet property="posterImageView" destination="fqC-sx-xfc" id="qJZ-PS-Lcw"/>
+                        <outlet property="ratingLabel" destination="sBC-H5-5JH" id="9GT-97-Z3i"/>
+                        <outlet property="summaryTextView" destination="CjY-Vq-mi7" id="FbC-WU-paA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xQp-Mm-4gp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-370" y="2505"/>
+            <point key="canvasLocation" x="-370.93596059113304" y="2504.8000000000002"/>
         </scene>
         <!--TV Shows-->
         <scene sceneID="dXS-wH-1oD">
@@ -49,7 +112,7 @@
                 <navigationController title="TV Shows" id="fbD-a7-SDf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Shows" image="Album" id="Qqu-dt-CuZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2bM-kf-JrY">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.40000000000000002" green="0.12156862745098039" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -70,20 +133,20 @@
         <!--TV Shows-->
         <scene sceneID="Mg5-9S-fh5">
             <objects>
-                <viewController title="TV Shows" id="kr0-hy-gsB" customClass="TVShowsViewController" customModule="TVShows" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TVShowsViewController" title="TV Shows" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kr0-hy-gsB" customClass="TVShowsViewController" customModule="TVShows" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kep-L6-2dT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nFy-Pb-ypb">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="44" y="32" width="724" height="290"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nFy-Pb-ypb" firstAttribute="leading" secondItem="IFd-Kk-qXo" secondAttribute="leading" id="0p7-Y7-0fO"/>
-                            <constraint firstItem="nFy-Pb-ypb" firstAttribute="width" secondItem="kep-L6-2dT" secondAttribute="width" id="YqT-I8-FpT"/>
+                            <constraint firstItem="nFy-Pb-ypb" firstAttribute="width" secondItem="IFd-Kk-qXo" secondAttribute="width" id="YqT-I8-FpT"/>
                             <constraint firstItem="nFy-Pb-ypb" firstAttribute="top" secondItem="IFd-Kk-qXo" secondAttribute="top" id="bQX-uh-UJ1"/>
                             <constraint firstItem="nFy-Pb-ypb" firstAttribute="trailing" secondItem="IFd-Kk-qXo" secondAttribute="trailing" id="tlw-Fo-q4e"/>
                             <constraint firstItem="IFd-Kk-qXo" firstAttribute="bottom" secondItem="nFy-Pb-ypb" secondAttribute="bottom" id="vfC-GD-RKd"/>
@@ -93,7 +156,7 @@
                     <navigationItem key="navigationItem" id="DvY-Ej-HaW"/>
                     <connections>
                         <outlet property="showsTableView" destination="nFy-Pb-ypb" id="1LL-VJ-ehM"/>
-                        <segue destination="cHO-Ck-S8i" kind="showDetail" id="v6J-j7-RaH"/>
+                        <segue destination="cHO-Ck-S8i" kind="show" identifier="tvShowDetailSegue" id="v6J-j7-RaH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IOe-Z8-tiI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -106,6 +169,7 @@
                 <navigationController title="Favorites" id="XpU-CB-ItN" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="VeX-5w-fMv"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Z7C-2C-VIy">
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.40000000000000002" green="0.1215686275" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -126,13 +190,13 @@
         <!--Favorites-->
         <scene sceneID="8SG-gC-5bS">
             <objects>
-                <viewController title="Favorites" id="vc4-dg-Sca" customClass="TVShowsFavoritesViewController" customModule="TVShows" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TVShowsFavoritesViewController" title="Favorites" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vc4-dg-Sca" customClass="TVShowsFavoritesViewController" customModule="TVShows" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tdF-hx-lEG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e22-ab-cRR">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="44" y="32" width="724" height="290"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -142,14 +206,14 @@
                             <constraint firstItem="e22-ab-cRR" firstAttribute="leading" secondItem="nB9-xK-6an" secondAttribute="leading" id="fE9-y5-12J"/>
                             <constraint firstItem="e22-ab-cRR" firstAttribute="trailing" secondItem="nB9-xK-6an" secondAttribute="trailing" id="iJp-t5-kWe"/>
                             <constraint firstItem="e22-ab-cRR" firstAttribute="top" secondItem="nB9-xK-6an" secondAttribute="top" id="mnY-Pe-Dmj"/>
-                            <constraint firstItem="e22-ab-cRR" firstAttribute="width" secondItem="tdF-hx-lEG" secondAttribute="width" id="tDb-fj-kL2"/>
+                            <constraint firstItem="e22-ab-cRR" firstAttribute="width" secondItem="nB9-xK-6an" secondAttribute="width" id="tDb-fj-kL2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nB9-xK-6an"/>
                     </view>
                     <navigationItem key="navigationItem" id="WHA-gb-Rj5"/>
                     <connections>
                         <outlet property="showsTableView" destination="e22-ab-cRR" id="Rrd-J6-KxD"/>
-                        <segue destination="cHO-Ck-S8i" kind="showDetail" id="x2J-Oi-Azb"/>
+                        <segue destination="cHO-Ck-S8i" kind="show" identifier="tvShowDetailSegue" id="x2J-Oi-Azb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkq-iv-zJA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -161,6 +225,7 @@
         <image name="Album" width="33" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="v6J-j7-RaH"/>
+        <segue reference="x2J-Oi-Azb"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
