@@ -8,7 +8,6 @@
 
 import UIKit
 
-@IBDesignable
 class TVShowsViewController: BaseViewController {
   
   let networkingService = NetworkingService()
