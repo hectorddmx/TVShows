@@ -24,6 +24,10 @@ class TVShowStore: Object {
   dynamic var summary = ""
   dynamic var updated = 0
   dynamic var url = ""
+
+  var isFavorite: Bool {
+    return TVShowStore.checkFavoriteStatus(showID: id)
+  }
   
   convenience init(
     id: Int,
@@ -77,7 +81,7 @@ class TVShowStore: Object {
     try! realm.write {
       realm.add(self)
     }
-    print("Show with id: \(id ?? 0) has been saved")
+    print("Show with id: \(id) has been saved")
   }
 
   static func checkFavoriteStatus(showID: Int) -> Bool {
@@ -106,6 +110,13 @@ class TVShowStore: Object {
       realm.delete(show)
     }
     print("Show with id: \(showID) was deleted")
+  }
+
+  func deleteFavorite() {
+    let realm = try! Realm()
+    try! realm.write {
+      realm.delete(self)
+    }
   }
   
   override var description: String {
