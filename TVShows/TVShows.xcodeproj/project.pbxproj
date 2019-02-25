@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BF66306C1251E709B64CEF1 /* TVShowsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF66E4F28AF45E9DB19188E /* TVShowsModel.swift */; };
 		51F6E3961311D66004142C3E /* libPods-TVShowsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 000AC32135499ACE14AA8D4A /* libPods-TVShowsUITests.a */; };
 		97A97BFD9317290AFE2A8F1A /* libPods-TVShowsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A8DBF9B63684D87E7FE49D /* libPods-TVShowsTests.a */; };
 		D40830BC704C2638F6CCF554 /* libPods-TVShows.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16455E4ED9B25A2589F10622 /* libPods-TVShows.a */; };
@@ -23,6 +24,11 @@
 		D5470A7F222068E800F85243 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5470A7D222068E800F85243 /* Main.storyboard */; };
 		D5470A832220713B00F85243 /* TVShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5470A812220713B00F85243 /* TVShowTableViewCell.swift */; };
 		D5470A842220713B00F85243 /* TVShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5470A822220713B00F85243 /* TVShowTableViewCell.xib */; };
+		D5470A8822207D5200F85243 /* TVShowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5470A8722207D5200F85243 /* TVShowsViewController.swift */; };
+		D5470A8A22209EBC00F85243 /* UITabBarController+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5470A8922209EBC00F85243 /* UITabBarController+StatusBar.swift */; };
+		D5470A8C22209ED300F85243 /* UINavigationController+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5470A8B22209ED300F85243 /* UINavigationController+StatusBar.swift */; };
+		D55343102223736600A39EE6 /* TVShowsFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D553430F2223736600A39EE6 /* TVShowsFavoritesViewController.swift */; };
+		D5B11C122220B865006A2158 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B11C112220B865006A2158 /* NetworkingService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,7 @@
 /* Begin PBXFileReference section */
 		000AC32135499ACE14AA8D4A /* libPods-TVShowsUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TVShowsUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16455E4ED9B25A2589F10622 /* libPods-TVShows.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TVShows.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BF66E4F28AF45E9DB19188E /* TVShowsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVShowsModel.swift; sourceTree = "<group>"; };
 		669C625DBC54FF4A7A48C4CE /* Pods-TVShows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShows.release.xcconfig"; path = "Target Support Files/Pods-TVShows/Pods-TVShows.release.xcconfig"; sourceTree = "<group>"; };
 		7111F06BEAA7A213F05AB4A0 /* Pods-TVShows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShows.debug.xcconfig"; path = "Target Support Files/Pods-TVShows/Pods-TVShows.debug.xcconfig"; sourceTree = "<group>"; };
 		84E16FA76E7662BC8494E3D3 /* Pods-TVShowsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsUITests.release.xcconfig"; path = "Target Support Files/Pods-TVShowsUITests/Pods-TVShowsUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -70,6 +77,11 @@
 		D5470A7E222068E800F85243 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D5470A812220713B00F85243 /* TVShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowTableViewCell.swift; sourceTree = "<group>"; };
 		D5470A822220713B00F85243 /* TVShowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TVShowTableViewCell.xib; sourceTree = "<group>"; };
+		D5470A8722207D5200F85243 /* TVShowsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVShowsViewController.swift; sourceTree = "<group>"; };
+		D5470A8922209EBC00F85243 /* UITabBarController+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+StatusBar.swift"; sourceTree = "<group>"; };
+		D5470A8B22209ED300F85243 /* UINavigationController+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+StatusBar.swift"; sourceTree = "<group>"; };
+		D553430F2223736600A39EE6 /* TVShowsFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsFavoritesViewController.swift; sourceTree = "<group>"; };
+		D5B11C112220B865006A2158 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		F467D81841C9FEC2E61353C0 /* Pods-TVShowsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsTests.debug.xcconfig"; path = "Target Support Files/Pods-TVShowsTests/Pods-TVShowsTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +161,7 @@
 		D516BF68221F4097009E7358 /* TVShows */ = {
 			isa = PBXGroup;
 			children = (
+				D5B11C102220B837006A2158 /* Networking */,
 				D5470A2822205A9400F85243 /* Extensions */,
 				D5470A15221F5D6C00F85243 /* Models */,
 				D5470A14221F5D6100F85243 /* Controllers */,
@@ -191,6 +204,8 @@
 		D5470A14221F5D6100F85243 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D5470A8722207D5200F85243 /* TVShowsViewController.swift */,
+				D553430F2223736600A39EE6 /* TVShowsFavoritesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -202,6 +217,7 @@
 				D5470A202220565C00F85243 /* Image.swift */,
 				D5470A242220580300F85243 /* Externals.swift */,
 				D5470A262220583400F85243 /* TVShow.swift */,
+				1BF66E4F28AF45E9DB19188E /* TVShowsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -210,6 +226,8 @@
 			isa = PBXGroup;
 			children = (
 				D5470A2922205C0A00F85243 /* UIImageView+Cache.swift */,
+				D5470A8922209EBC00F85243 /* UITabBarController+StatusBar.swift */,
+				D5470A8B22209ED300F85243 /* UINavigationController+StatusBar.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -221,6 +239,14 @@
 				D516BF72221F4098009E7358 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D5B11C102220B837006A2158 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D5B11C112220B865006A2158 /* NetworkingService.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -430,10 +456,16 @@
 				D5470A212220565C00F85243 /* Image.swift in Sources */,
 				D5470A1B222055A600F85243 /* Rating.swift in Sources */,
 				D5470A832220713B00F85243 /* TVShowTableViewCell.swift in Sources */,
+				D5470A8C22209ED300F85243 /* UINavigationController+StatusBar.swift in Sources */,
+				D5470A8822207D5200F85243 /* TVShowsViewController.swift in Sources */,
 				D5470A272220583400F85243 /* TVShow.swift in Sources */,
+				D5470A8A22209EBC00F85243 /* UITabBarController+StatusBar.swift in Sources */,
 				D5470A252220580300F85243 /* Externals.swift in Sources */,
+				D55343102223736600A39EE6 /* TVShowsFavoritesViewController.swift in Sources */,
+				D5B11C122220B865006A2158 /* NetworkingService.swift in Sources */,
 				D5470A2A22205C0A00F85243 /* UIImageView+Cache.swift in Sources */,
 				D516BF6A221F4097009E7358 /* AppDelegate.swift in Sources */,
+				1BF66306C1251E709B64CEF1 /* TVShowsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,18 +9,17 @@
 import Foundation
 
 struct TVShow: Codable {
-  let externals: Externals
-  let genres: [String]
-  let id: Int
-  let image: Image
-  let language: String
-  let name: String
-  let officialSite: String
-  let premiered: String
-  let rating: Rating
-  let runtime: Int
-  let status: String
-  let summary: String
-  let updated: Int
-  let url: String
+  let externals: Externals?
+  let genres: [String]?
+  let id: Int?
+  let image: Image?
+  let language: String?
+  let name: String?
+  let premiered: String?
+  let rating: Rating?
+  let runtime: Int?
+  let status: String?
+  let summary: String?
+  let updated: Int?
+  let url: String?
 }

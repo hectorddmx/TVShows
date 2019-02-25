@@ -10,6 +10,6 @@ import Foundation
 
 
 struct Image: Codable {
-  let medium: String
-  let original: String
+  let medium: String?
+  let original: String?
 }

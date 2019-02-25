@@ -26,7 +26,17 @@ class TVShowTableViewCell: UITableViewCell {
   }
   
   func load(tvShow: TVShow) {
-    showThumbImageView.loadImage(fromURL: tvShow.image.medium)
-    showTitleLabel.text = tvShow.name
+    
+    showTitleLabel.text = ""
+    showThumbImageView.image = UIImage()
+    
+    if let name = tvShow.name {
+      showTitleLabel.text = name
+    }
+    
+    if let image = tvShow.image,
+      let mediumImage = image.medium {
+      showThumbImageView.loadImage(fromURL: mediumImage )
+    }
   }  
 }

@@ -10,5 +10,5 @@ import Foundation
 
 
 struct Rating: Codable {
-  let average: Double
+  let average: Double?
 }
