@@ -19,6 +19,8 @@ class TVShowDetailViewController: BaseViewController {
   @IBOutlet weak var ratingLabel: UILabel!
   
   var imdbID: String = ""
+  var isFavorite: Bool = false
+  var id: Int = 0
   
   // MARK: - Configuration
   
@@ -26,12 +28,18 @@ class TVShowDetailViewController: BaseViewController {
     super.prepareNavigationBar()
   }
   
+  @objc func toggleFavorite() {
+    
+  }
+  
   private func prepareScreen(
     name: String,
     poster: String,
     summary: String,
     imdb: String,
-    rating: Double
+    rating: Double,
+    isFavorite: Bool,
+    id: Int
     ) {
     navigationItem.title = name
     posterImageView.loadImage(fromURL: poster)
@@ -42,6 +50,20 @@ class TVShowDetailViewController: BaseViewController {
     summaryTextView.attributedText = summary.htmlToAttributedString
     summaryTextView.scrollRangeToVisible(NSRange(location:0, length:0))
     ratingLabel.text = "Rating: \(rating)"
+    self.isFavorite = isFavorite
+    self.id = id
+    
+    let style: UIBarButtonItem.SystemItem
+    if isFavorite {
+      style = .trash
+    } else {
+      style = .add
+    }
+    self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+      barButtonSystemItem: style,
+      target: self,
+      action: #selector(toggleFavorite)
+    )    
   }
   
   // MARK: - Lifecycle
@@ -71,7 +93,9 @@ class TVShowDetailViewController: BaseViewController {
         poster: tvShow.image?.original ?? "",
         summary: tvShow.summary ?? "",
         imdb: tvShow.externals?.imdb ?? "",
-        rating: tvShow.rating?.average ?? 0.0
+        rating: tvShow.rating?.average ?? 0.0,
+        isFavorite: tvShow.isFavorite,
+        id: tvShow.id ?? 0
       )
     } else if let tvShowStore = tvShowStore {
       prepareScreen(
@@ -79,7 +103,9 @@ class TVShowDetailViewController: BaseViewController {
         poster: tvShowStore.imageOriginal,
         summary: tvShowStore.summary,
         imdb: tvShowStore.imbd,
-        rating: tvShowStore.ratingAverage
+        rating: tvShowStore.ratingAverage,
+        isFavorite: tvShowStore.isFavorite,
+        id: tvShowStore.id
       )
     }
   }
