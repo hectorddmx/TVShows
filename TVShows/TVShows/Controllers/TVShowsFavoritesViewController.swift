@@ -69,6 +69,12 @@ extension TVShowsFavoritesViewController: UITableViewDelegate {
     
   }
   
+  fileprivate func removeFavorite(tableView: UITableView, indexPath: IndexPath) {
+    self.favorites[indexPath.row].deleteFavorite()
+    self.favorites.remove(at: indexPath.row)
+    tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+  }
+  
   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     let unfavoriteAction = UITableViewRowAction(
       style: .normal,
@@ -76,12 +82,10 @@ extension TVShowsFavoritesViewController: UITableViewDelegate {
     ) {
       [weak self] (rowAction, indexPath) in
       if let self = self {
-        self.favorites[indexPath.row].deleteFavorite()
-        self.favorites.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+        self.removeFavorite(tableView: tableView, indexPath: indexPath)
       }
     }
-    unfavoriteAction.backgroundColor = .red
+    unfavoriteAction.backgroundColor = UIColor(rgb: 0xFF3A30)
     return [unfavoriteAction]
   }
 }

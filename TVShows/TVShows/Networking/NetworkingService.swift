@@ -37,7 +37,6 @@ class NetworkingService {
       return
     }
     
-    // 611
     url = url.appendingPathComponent(pathComponent)
     task?.cancel()
     task = URLSession.shared.dataTask(with: url) {
