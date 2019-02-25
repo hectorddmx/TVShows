@@ -35,8 +35,10 @@ class TVShowDetailViewController: BaseViewController {
     ) {
     navigationItem.title = name
     posterImageView.loadImage(fromURL: poster)
-    imdbButton.setTitle("IMDb: \(imdb)", for: .normal)
     imdbID = imdb
+    imdbButton.isHidden = imdbID.isEmpty
+    imdbButton.setTitle("IMDb: \(imdb)", for: .normal)
+    
     summaryTextView.attributedText = summary.htmlToAttributedString
     summaryTextView.scrollRangeToVisible(NSRange(location:0, length:0))
     ratingLabel.text = "Rating: \(rating)"
@@ -99,7 +101,7 @@ class TVShowDetailViewController: BaseViewController {
     guard var baseURL: URL = URL(string: "https://www.imdb.com/title")
       else { return }
     
-    baseURL.appendPathComponent(imdbID)    
+    baseURL.appendPathComponent(imdbID)
     UIApplication.shared.open(baseURL, options: [:], completionHandler: nil)
   }
 }
