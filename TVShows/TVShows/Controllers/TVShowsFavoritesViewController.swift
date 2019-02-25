@@ -12,7 +12,7 @@ import UIKit
 class TVShowsFavoritesViewController: BaseViewController {
   
   var favorites: [TVShowStore] = []
-  var tvShowStore: TVShowStore?
+  var tvShow: TVShow?
   
   // MARK: - Outlets
   @IBOutlet weak var showsTableView: UITableView!
@@ -58,7 +58,7 @@ class TVShowsFavoritesViewController: BaseViewController {
     if
       segue.identifier == Segues.tvShowDetailSegue.rawValue,
       let destination = segue.destination as? TVShowDetailViewController {
-      destination.tvShowStore = tvShowStore
+      destination.tvShow = tvShow
     }
   }
 }
@@ -68,7 +68,8 @@ class TVShowsFavoritesViewController: BaseViewController {
 extension TVShowsFavoritesViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    tvShowStore = favorites[indexPath.row]
+    let tvShowStore: TVShowStore = favorites[indexPath.row]    
+    self.tvShow = tvShowStore.buildTVShowModel()
     performSegue(withIdentifier: Segues.tvShowDetailSegue.rawValue, sender: self)
   }
   
