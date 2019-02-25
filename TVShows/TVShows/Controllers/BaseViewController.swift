@@ -68,4 +68,17 @@ class BaseViewController: UIViewController {
     alertController.addAction(cancelAction)
     vc.present(alertController, animated: true, completion: nil)
   }
+  
+  func showGenericErrorMessage(
+    message: String
+    ) {
+    let alertController = UIAlertController(
+      title: "Error",
+      message: message,
+      preferredStyle: .actionSheet
+    )
+    let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+    alertController.addAction(cancelAction)
+    present(alertController, animated: true, completion: nil)
+  }
 }

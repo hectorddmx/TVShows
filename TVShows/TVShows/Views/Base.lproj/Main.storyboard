@@ -58,6 +58,9 @@
                                                         <state key="normal" title="IMDb: ">
                                                             <color key="titleColor" red="0.038496572520000001" green="0.44381442669999999" blue="0.80874699350000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="openIMDBAction:" destination="cHO-Ck-S8i" eventType="touchUpInside" id="PWs-yj-62B"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBC-H5-5JH">
                                                         <rect key="frame" x="280.33333333333331" y="0.0" width="37.333333333333314" height="44"/>

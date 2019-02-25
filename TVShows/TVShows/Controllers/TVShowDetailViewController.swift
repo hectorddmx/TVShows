@@ -18,6 +18,31 @@ class TVShowDetailViewController: BaseViewController {
   @IBOutlet weak var summaryTextView: UITextView!
   @IBOutlet weak var ratingLabel: UILabel!
   
+  var imdbID: String = ""
+  
+  // MARK: - Configuration
+  
+  override func prepareNavigationBar() {
+    super.prepareNavigationBar()
+  }
+  
+  private func prepareScreen(
+    name: String,
+    poster: String,
+    summary: String,
+    imdb: String,
+    rating: Double
+    ) {
+    navigationItem.title = name
+    posterImageView.loadImage(fromURL: poster)
+    imdbButton.setTitle("IMDb: \(imdb)", for: .normal)
+    imdbID = imdb
+    summaryTextView.attributedText = summary.htmlToAttributedString
+    summaryTextView.scrollRangeToVisible(NSRange(location:0, length:0))
+    ratingLabel.text = "Rating: \(rating)"
+  }
+  
+  // MARK: - Lifecycle
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -43,7 +68,7 @@ class TVShowDetailViewController: BaseViewController {
         name: tvShow.name ?? "",
         poster: tvShow.image?.original ?? "",
         summary: tvShow.summary ?? "",
-        imbd: tvShow.externals?.imdb ?? "",
+        imdb: tvShow.externals?.imdb ?? "",
         rating: tvShow.rating?.average ?? 0.0
       )
     } else if let tvShowStore = tvShowStore {
@@ -51,7 +76,7 @@ class TVShowDetailViewController: BaseViewController {
         name: tvShowStore.name,
         poster: tvShowStore.imageOriginal,
         summary: tvShowStore.summary,
-        imbd: tvShowStore.imbd,
+        imdb: tvShowStore.imbd,
         rating: tvShowStore.ratingAverage
       )
     }
@@ -62,25 +87,19 @@ class TVShowDetailViewController: BaseViewController {
     summaryTextView.setContentOffset(.zero, animated: true)
   }
   
-  override func prepareNavigationBar() {
-    super.prepareNavigationBar()
-  }
-  
-  private func prepareScreen(
-    name: String,
-    poster: String,
-    summary: String,
-    imbd: String,
-    rating: Double
-    ) {
-    navigationItem.title = name
-    posterImageView.loadImage(fromURL: poster)
-    imdbButton.setTitle("IMDb: \(imbd)", for: .normal)
-    summaryTextView.attributedText = summary.htmlToAttributedString
-    summaryTextView.scrollRangeToVisible(NSRange(location:0, length:0))
-    ratingLabel.text = "Rating: \(rating)"
-  }
-  
-  
   // MARK: - Navigation
+  
+  @IBAction func openIMDBAction(_ sender: UIButton) {
+    
+    if imdbID.isEmpty {
+      showGenericErrorMessage(message: "Oops, something went wrong")
+      return
+    }
+    
+    guard var baseURL: URL = URL(string: "https://www.imdb.com/title")
+      else { return }
+    
+    baseURL.appendPathComponent(imdbID)    
+    UIApplication.shared.open(baseURL, options: [:], completionHandler: nil)
+  }
 }
