@@ -27,8 +27,17 @@ class TVShowsViewController: BaseViewController {
   public var screenState: ScreenState = ScreenState.empty {
     didSet {
       switch screenState {
-      case .populated(let tvShows): currentTVShows = tvShows
-      default: currentTVShows = []
+      case .populated(let tvShows):
+        currentTVShows = tvShows
+      case .error(let error):
+        handleErrorMessage(vc: self, error: error) {
+          [weak self] _ in
+          guard let self = self else { return }
+          self.loadShows()
+        }
+        fallthrough
+      default:
+        currentTVShows = []
       }
       showsTableView.reloadData()
     }
