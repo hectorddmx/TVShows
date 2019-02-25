@@ -59,12 +59,25 @@ class TVShowStore: Object {
   override static func primaryKey() -> String? {
     return "id"
   }
+
+  static func getSavedShows() -> [TVShowStore] {
+    var shows: [TVShowStore] = []
+    let realm = try! Realm()
+    let results = realm.objects(TVShowStore.self)
+
+    if !results.isEmpty {
+      shows = Array(results)
+    }
+
+    return shows
+  }
   
   func saveShow() {
     let realm = try! Realm()
     try! realm.write {
       realm.add(self)
     }
+    print("Show with id: \(id ?? 0) has been saved")
   }
 
   static func checkFavoriteStatus(showID: Int) -> Bool {
@@ -72,8 +85,12 @@ class TVShowStore: Object {
 
     guard
       let _ = realm.object(ofType: TVShowStore.self, forPrimaryKey: showID)
-      else { return false }
+      else {
+      print("Show with id: \(showID) is not favorite")
+      return false
+    }
 
+    print("Show with id: \(showID) is a favorite")
     return true
 
   }
@@ -88,6 +105,7 @@ class TVShowStore: Object {
     try! realm.write {
       realm.delete(show)
     }
+    print("Show with id: \(showID) was deleted")
   }
   
   override var description: String {
