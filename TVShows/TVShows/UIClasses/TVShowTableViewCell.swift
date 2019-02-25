@@ -38,5 +38,19 @@ class TVShowTableViewCell: UITableViewCell {
       let mediumImage = image.medium {
       showThumbImageView.loadImage(fromURL: mediumImage )
     }
-  }  
+  }
+  
+  func load(tvShowStore: TVShowStore) {
+    
+    showTitleLabel.text = ""
+    showThumbImageView.image = UIImage()
+    
+    if !tvShowStore.name.isEmpty {
+      showTitleLabel.text = tvShowStore.name
+    }
+    
+    if !tvShowStore.imageMedium.isEmpty {
+      showThumbImageView.loadImage(fromURL: tvShowStore.imageMedium )
+    }
+  }
 }

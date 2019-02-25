@@ -97,6 +97,29 @@ class TVShowsViewController: UIViewController {
 
 extension TVShowsViewController: UITableViewDelegate {
   
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    
+  }
+  
+//  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//    
+//  }
+  
+//  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//
+//    let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (rowAction, indexPath) in
+//      //TODO: edit the row at indexPath here
+//    }
+//    editAction.backgroundColor = .blue
+//
+//    let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { (rowAction, indexPath) in
+//      //TODO: Delete the row at indexPath here
+//    }
+//    deleteAction.backgroundColor = .red
+//
+//    return [editAction,deleteAction]
+//  }
+  
 }
 
 

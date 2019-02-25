@@ -28,6 +28,7 @@
 		D5470A8A22209EBC00F85243 /* UITabBarController+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5470A8922209EBC00F85243 /* UITabBarController+StatusBar.swift */; };
 		D5470A8C22209ED300F85243 /* UINavigationController+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5470A8B22209ED300F85243 /* UINavigationController+StatusBar.swift */; };
 		D55343102223736600A39EE6 /* TVShowsFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D553430F2223736600A39EE6 /* TVShowsFavoritesViewController.swift */; };
+		D59F2BAB2223966E00666224 /* TVShowStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59F2BAA2223966E00666224 /* TVShowStore.swift */; };
 		D5B11C122220B865006A2158 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B11C112220B865006A2158 /* NetworkingService.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		D5470A8922209EBC00F85243 /* UITabBarController+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+StatusBar.swift"; sourceTree = "<group>"; };
 		D5470A8B22209ED300F85243 /* UINavigationController+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+StatusBar.swift"; sourceTree = "<group>"; };
 		D553430F2223736600A39EE6 /* TVShowsFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsFavoritesViewController.swift; sourceTree = "<group>"; };
+		D59F2BAA2223966E00666224 /* TVShowStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowStore.swift; sourceTree = "<group>"; };
 		D5B11C112220B865006A2158 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		F467D81841C9FEC2E61353C0 /* Pods-TVShowsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShowsTests.debug.xcconfig"; path = "Target Support Files/Pods-TVShowsTests/Pods-TVShowsTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,6 +163,7 @@
 		D516BF68221F4097009E7358 /* TVShows */ = {
 			isa = PBXGroup;
 			children = (
+				D59F2BA7222395F300666224 /* Stores */,
 				D5B11C102220B837006A2158 /* Networking */,
 				D5470A2822205A9400F85243 /* Extensions */,
 				D5470A15221F5D6C00F85243 /* Models */,
@@ -239,6 +242,14 @@
 				D516BF72221F4098009E7358 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D59F2BA7222395F300666224 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				D59F2BAA2223966E00666224 /* TVShowStore.swift */,
+			);
+			path = Stores;
 			sourceTree = "<group>";
 		};
 		D5B11C102220B837006A2158 /* Networking */ = {
@@ -455,6 +466,7 @@
 			files = (
 				D5470A212220565C00F85243 /* Image.swift in Sources */,
 				D5470A1B222055A600F85243 /* Rating.swift in Sources */,
+				D59F2BAB2223966E00666224 /* TVShowStore.swift in Sources */,
 				D5470A832220713B00F85243 /* TVShowTableViewCell.swift in Sources */,
 				D5470A8C22209ED300F85243 /* UINavigationController+StatusBar.swift in Sources */,
 				D5470A8822207D5200F85243 /* TVShowsViewController.swift in Sources */,
