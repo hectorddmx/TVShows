@@ -12,7 +12,7 @@ import UIKit
 @IBDesignable
 class TVShowsFavoritesViewController: UIViewController {
   
-  var favorites: [TVShow] = []
+  var favorites: [TVShowStore] = []
   
   // MARK: - Outlets
   @IBOutlet weak var showsTableView: UITableView!
@@ -20,7 +20,8 @@ class TVShowsFavoritesViewController: UIViewController {
   // MARK: - Properties
   
   func loadShows() {
-   
+    favorites = TVShowStore.getSavedShows()
+    showsTableView.reloadData()
   }
   
   // MARK: - Configuration
@@ -49,9 +50,13 @@ class TVShowsFavoritesViewController: UIViewController {
     super.viewDidLoad()
     prepareNavigationBar()
     prepareShowsTableView()
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     loadShows()
   }
-  
+
   // MARK: - Navigation
 }
 
@@ -76,7 +81,7 @@ extension TVShowsFavoritesViewController: UITableViewDataSource {
         for: indexPath
         ) as? TVShowTableViewCell
       else { return UITableViewCell() }
-    showCell.load(tvShow: favorites[indexPath.row])
+    showCell.load(tvShowStore: favorites[indexPath.row])
     return showCell
   }
   
