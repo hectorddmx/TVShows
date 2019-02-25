@@ -109,7 +109,7 @@ extension TVShowsViewController: UITableViewDelegate {
         self.currentTVShows[indexPath.row].setFavoriteStatus(favorite: false)
       }
     }
-    unfavoriteAction.backgroundColor = UIColor(rgb: 0xFF3A30)
+    unfavoriteAction.backgroundColor = UIColor(rgb: Colors.unfavorite.rawValue)
     return [unfavoriteAction]
   }
   
@@ -119,7 +119,7 @@ extension TVShowsViewController: UITableViewDelegate {
       guard let self = self else { return }
       self.currentTVShows[indexPath.row].setFavoriteStatus(favorite: true)
     }
-    favoriteAction.backgroundColor = UIColor(rgb: 0x7ED321)
+    favoriteAction.backgroundColor = UIColor(rgb: Colors.favorite.rawValue)
     return [favoriteAction]
   }
   

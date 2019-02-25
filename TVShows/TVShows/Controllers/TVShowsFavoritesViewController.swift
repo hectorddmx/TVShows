@@ -82,7 +82,7 @@ extension TVShowsFavoritesViewController: UITableViewDelegate {
         self.removeFavorite(tableView: tableView, indexPath: indexPath)
       }
     }
-    unfavoriteAction.backgroundColor = UIColor(rgb: 0xFF3A30)
+    unfavoriteAction.backgroundColor = UIColor(rgb: Colors.unfavorite.rawValue)
     return [unfavoriteAction]
   }
 }
