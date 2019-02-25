@@ -31,7 +31,7 @@ class BaseViewController: UIViewController {
       preferredStyle: .actionSheet
     )
     let okAction = UIAlertAction(title: "Delete", style: .destructive, handler: okActionHandler)
-    let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
+    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
     alertController.addAction(okAction)
     alertController.addAction(cancelAction)
     vc.present(alertController, animated: true, completion: nil)
@@ -63,7 +63,7 @@ class BaseViewController: UIViewController {
       preferredStyle: .actionSheet
     )
     let okAction = UIAlertAction(title: "Retry", style: .default, handler: okActionHandler)
-    let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
+    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
     alertController.addAction(okAction)
     alertController.addAction(cancelAction)
     vc.present(alertController, animated: true, completion: nil)
