@@ -91,11 +91,8 @@
                         <viewLayoutGuide key="safeArea" id="IFd-Kk-qXo"/>
                     </view>
                     <navigationItem key="navigationItem" id="DvY-Ej-HaW"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="_screenType" value="tvShows"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="showsTableView" destination="nFy-Pb-ypb" id="9io-4P-0gC"/>
+                        <outlet property="showsTableView" destination="nFy-Pb-ypb" id="1LL-VJ-ehM"/>
                         <segue destination="cHO-Ck-S8i" kind="showDetail" id="v6J-j7-RaH"/>
                     </connections>
                 </viewController>
@@ -130,7 +127,7 @@
         <!--Favorites-->
         <scene sceneID="8SG-gC-5bS">
             <objects>
-                <viewController title="Favorites" id="vc4-dg-Sca" customClass="TVShowsViewController" customModule="TVShows" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Favorites" id="vc4-dg-Sca" customClass="TVShowsFavoritesViewController" customModule="TVShows" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tdF-hx-lEG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,10 +148,8 @@
                         <viewLayoutGuide key="safeArea" id="nB9-xK-6an"/>
                     </view>
                     <navigationItem key="navigationItem" id="WHA-gb-Rj5"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="_screenType" value="favorites"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="showsTableView" destination="e22-ab-cRR" id="Rrd-J6-KxD"/>
                         <segue destination="cHO-Ck-S8i" kind="showDetail" id="x2J-Oi-Azb"/>
                     </connections>
                 </viewController>

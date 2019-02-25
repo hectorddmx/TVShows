@@ -11,31 +11,22 @@ import UIKit
 @IBDesignable
 class TVShowsViewController: UIViewController {
   
+  let networkingService = NetworkingService()
+  
   // MARK: - Outlets
   @IBOutlet weak var showsTableView: UITableView!
   
   // MARK: - Properties
-  
-  enum ScreenType: String {
-    case tvShows
-    case favorites
-    case undefined
-  }
-  @IBInspectable private var _screenType: String?
-  public var screenType: ScreenType {
-    guard let _screenType = _screenType else { return .undefined }
-    return ScreenType.init(rawValue: _screenType) ?? .undefined
-  }
-  
   enum ScreenState {
     case empty
+    case loading
+    case error(Error)
     case populated([TVShow])
     
     var currentTVShows: [TVShow] {
       switch self {
-      case .empty: return []
-      case .populated(let tvShows):
-        return tvShows
+      case .populated(let tvShows): return tvShows
+      default: return []
       }
     }
   }
@@ -44,7 +35,28 @@ class TVShowsViewController: UIViewController {
       showsTableView.reloadData()
     }
   }
- 
+  
+  func loadShows() {
+    networkingService.fetchTVShows() { [weak self] response in
+      guard let `self` = self else { return }
+      self.update(response: response)
+    }
+  }
+  
+  func update(response: TVShowsModel) {
+    if let error = response.error {
+      screenState = .error(error)
+      return
+    }
+    
+    guard let tvShows = response.tvShows, !tvShows.isEmpty else {
+      screenState = .empty
+      return
+    }
+    
+    screenState = .populated(tvShows)
+  }
+  
   // MARK: - Configuration
   
   override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -53,14 +65,7 @@ class TVShowsViewController: UIViewController {
   
   private func prepareNavigationBar() {
     navigationController?.navigationBar.prefersLargeTitles = true
-    
-    let title: String
-    switch screenType {
-    case .favorites: title = "Favorites"
-    case .tvShows: title = "TV Shows"
-    case .undefined: title = ""
-    }
-    navigationItem.title = title
+    navigationItem.title = "TV Shows"
   }
   
   private func prepareShowsTableView() {
@@ -70,7 +75,7 @@ class TVShowsViewController: UIViewController {
     let nib = UINib(nibName: TVShowTableViewCell.nibName, bundle: .main)
     showsTableView.register(
       nib,
-      forHeaderFooterViewReuseIdentifier: TVShowTableViewCell.reuseIdentifier
+      forCellReuseIdentifier: TVShowTableViewCell.reuseIdentifier
     )
   }
   
@@ -81,9 +86,10 @@ class TVShowsViewController: UIViewController {
     super.viewDidLoad()
     prepareNavigationBar()
     prepareShowsTableView()
+    loadShows()
   }
   
-   // MARK: - Navigation
+  // MARK: - Navigation
 }
 
 // MARK: - Delegates
@@ -105,7 +111,7 @@ extension TVShowsViewController: UITableViewDataSource {
       let showCell: TVShowTableViewCell = tableView.dequeueReusableCell(
         withIdentifier: TVShowTableViewCell.reuseIdentifier,
         for: indexPath
-      ) as? TVShowTableViewCell
+        ) as? TVShowTableViewCell
       else { return UITableViewCell() }
     showCell.load(tvShow: screenState.currentTVShows[indexPath.row])
     return showCell

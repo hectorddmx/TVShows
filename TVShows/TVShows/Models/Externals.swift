@@ -10,5 +10,5 @@ import Foundation
 
 
 struct Externals: Codable {
-  let imdb: String
+  let imdb: String?
 }
