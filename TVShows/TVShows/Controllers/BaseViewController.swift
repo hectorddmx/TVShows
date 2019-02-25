@@ -18,6 +18,7 @@ class BaseViewController: UIViewController {
   
   func prepareNavigationBar() {
     navigationController?.navigationBar.prefersLargeTitles = true
+    /// Add button
   }
   
   func showActionAlert(
@@ -30,11 +31,23 @@ class BaseViewController: UIViewController {
       message: nil,
       preferredStyle: .actionSheet
     )
-    let okAction = UIAlertAction(title: "Delete", style: .destructive, handler: okActionHandler)
-    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+    let okAction = UIAlertAction(
+      title: "Delete",
+      style: .destructive,
+      handler: okActionHandler
+    )
+    let cancelAction = UIAlertAction(
+      title: "Cancel",
+      style: .cancel,
+      handler: nil
+    )
     alertController.addAction(okAction)
     alertController.addAction(cancelAction)
-    vc.present(alertController, animated: true, completion: nil)
+    vc.present(
+      alertController,
+      animated: true,
+      completion: nil
+    )
   }
   
   func handleErrorMessage(
@@ -44,11 +57,19 @@ class BaseViewController: UIViewController {
     ) {
     
     guard let networkError = error as? NetworkError  else {
-      showErrorMessage(vc: vc, message: NetworkError.generic.getMessage(), okActionHandler: okActionHandler)
+      showErrorMessage(
+        vc: vc,
+        message: NetworkError.generic.getMessage(),
+        okActionHandler: okActionHandler
+      )
       return
     }
     
-    showErrorMessage(vc: vc, message: networkError.getMessage(), okActionHandler: okActionHandler)
+    showErrorMessage(
+      vc: vc,
+      message: networkError.getMessage(),
+      okActionHandler: okActionHandler
+    )
   }
   
   private func showErrorMessage(
@@ -56,17 +77,28 @@ class BaseViewController: UIViewController {
     message: String,
     okActionHandler: @escaping (UIAlertAction) -> Void
     ) {
-    
     let alertController = UIAlertController(
       title: "Error",
       message: message,
       preferredStyle: .actionSheet
     )
-    let okAction = UIAlertAction(title: "Retry", style: .default, handler: okActionHandler)
-    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+    let okAction = UIAlertAction(
+      title: "Retry",
+      style: .default,
+      handler: okActionHandler
+    )
+    let cancelAction = UIAlertAction(
+      title: "Cancel",
+      style: .cancel,
+      handler: nil
+    )
     alertController.addAction(okAction)
     alertController.addAction(cancelAction)
-    vc.present(alertController, animated: true, completion: nil)
+    vc.present(
+      alertController,
+      animated: true,
+      completion: nil
+    )
   }
   
   func showGenericErrorMessage(
@@ -77,8 +109,16 @@ class BaseViewController: UIViewController {
       message: message,
       preferredStyle: .actionSheet
     )
-    let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+    let cancelAction = UIAlertAction(
+      title: "OK",
+      style: .cancel,
+      handler: nil
+    )
     alertController.addAction(cancelAction)
-    present(alertController, animated: true, completion: nil)
+    present(
+      alertController,
+      animated: true,
+      completion: nil
+    )
   }
 }
