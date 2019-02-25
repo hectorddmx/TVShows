@@ -104,7 +104,7 @@ extension TVShowsViewController: UITableViewDelegate {
     let unfavoriteAction = UITableViewRowAction(
     style: .normal, title: "Delete") { [weak self] (rowAction, indexPath) in
       guard let self = self else { return }
-      self.showActionAlert(vc: self, title: "Delete favorite?") { [weak self] _ in
+      self.showActionAlert(vc: self) { [weak self] _ in
         guard let self = self else { return }
         self.currentTVShows[indexPath.row].setFavoriteStatus(favorite: false)
       }

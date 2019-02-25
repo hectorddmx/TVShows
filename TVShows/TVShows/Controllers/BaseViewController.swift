@@ -20,9 +20,13 @@ class BaseViewController: UIViewController {
     navigationController?.navigationBar.prefersLargeTitles = true
   }
   
-  func showActionAlert(vc: UIViewController, title: String, okActionHandler: @escaping (UIAlertAction) -> Void) {
+  func showActionAlert(
+    vc: UIViewController,
+    okActionHandler: @escaping (UIAlertAction) -> Void
+    ) {
+    
     let alertController = UIAlertController(
-      title: title,
+      title: "Delete favorite?",
       message: nil,
       preferredStyle: .actionSheet
     )
@@ -31,6 +35,22 @@ class BaseViewController: UIViewController {
     alertController.addAction(okAction)
     alertController.addAction(cancelAction)
     vc.present(alertController, animated: true, completion: nil)
+  }
+  
+  func showErrorMessage(
+    vc: UIViewController,
+    okActionHandler: @escaping (UIAlertAction) -> Void
+    ) {
     
+    let alertController = UIAlertController(
+      title: "Delete favorite?",
+      message: nil,
+      preferredStyle: .actionSheet
+    )
+    let okAction = UIAlertAction(title: "Delete", style: .destructive, handler: okActionHandler)
+    let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
+    alertController.addAction(okAction)
+    alertController.addAction(cancelAction)
+    vc.present(alertController, animated: true, completion: nil)
   }
 }
