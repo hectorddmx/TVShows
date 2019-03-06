@@ -10,6 +10,8 @@ import UIKit
 
 class TVShowTableViewCell: UITableViewCell {
   
+  var task: URLSessionTask?
+  
   static let reuseIdentifier = String(describing: TVShowTableViewCell.self)
   static let nibName = String(describing: TVShowTableViewCell.self)
   
@@ -25,18 +27,19 @@ class TVShowTableViewCell: UITableViewCell {
     super.setSelected(selected, animated: animated)
   }
   
-  func load(tvShow: TVShow) {
-    
+  override func prepareForReuse() {
     showTitleLabel.text = ""
     showThumbImageView.image = UIImage()
-    
+  }
+  
+  func load(tvShow: TVShow) {
     if let name = tvShow.name {
       showTitleLabel.text = name
     }
     
     if let image = tvShow.image,
       let mediumImage = image.medium {
-      showThumbImageView.loadImage(fromURL: mediumImage )
+      showThumbImageView.loadImage(fromURL: mediumImage)
     }
   }
   
@@ -50,7 +53,54 @@ class TVShowTableViewCell: UITableViewCell {
     }
     
     if !tvShowStore.imageMedium.isEmpty {
-      showThumbImageView.loadImage(fromURL: tvShowStore.imageMedium )
+      showThumbImageView.loadImage(fromURL: tvShowStore.imageMedium)
     }
   }
+  
+  func loadImage(forImageView imageView: UIImageView, fromURL url: String) {
+    
+    task?.cancel()
+    
+    guard let imageURL: URL = URL(string: url) else {
+      return
+    }
+    
+    let cache: URLCache =  URLCache.shared
+    let request = URLRequest(url: imageURL)
+    DispatchQueue.global(qos: .userInitiated).async {
+      if
+        let data: Data = cache.cachedResponse(for: request)?.data,
+        let image: UIImage = UIImage(data: data) {
+        print("Getting cached image: \(url)")
+        DispatchQueue.main.async {
+          imageView.transition(toImage: image)
+        }
+      } else {
+        print("Requesting image: \(url)")
+        
+        self.task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+          if
+            let data = data,
+            let response: URLResponse = response,
+            ((response as? HTTPURLResponse)?.statusCode ?? 500) < 300,
+            let image: UIImage = UIImage(data: data) {
+            let cachedData: CachedURLResponse = CachedURLResponse(
+              response: response,
+              data: data
+            )
+            cache.storeCachedResponse(
+              cachedData,
+              for: request
+            )
+            DispatchQueue.main.async {
+              imageView.transition(toImage: image)
+            }
+          }
+        })
+        self.task?.resume()
+      }
+    }
+  }
+  
+  
 }

@@ -46,7 +46,9 @@ class NetworkingService {
     url = url.appendingPathComponent(pathComponent)
     task?.cancel()
     task = URLSession.shared.dataTask(with: url) {
+      [weak self]
       data, response, error in
+      guard let self = self else { return }
       DispatchQueue.main.async {
         
         if let error = error {
@@ -60,6 +62,13 @@ class NetworkingService {
           fireErrorCompletion(error)
           return
         }
+        
+        guard let response = response else {
+          fireErrorCompletion(error)
+          return
+        }
+        
+        dump(response)
         
         do {
           let result = try JSONDecoder().decode([TVShow].self, from: data)

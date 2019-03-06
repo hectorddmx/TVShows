@@ -77,6 +77,7 @@ class TVShowsViewController: BaseViewController {
     showsTableView.dataSource = self
     
     let nib = UINib(nibName: TVShowTableViewCell.nibName, bundle: .main)
+    showsTableView.register(nib, forCellReuseIdentifier: TVShowTableViewCell.reuseIdentifier)
     showsTableView.register(
       nib,
       forCellReuseIdentifier: TVShowTableViewCell.reuseIdentifier
@@ -157,11 +158,9 @@ extension TVShowsViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard
-      let showCell: TVShowTableViewCell = tableView.dequeueReusableCell(
-        withIdentifier: TVShowTableViewCell.reuseIdentifier,
-        for: indexPath
-        ) as? TVShowTableViewCell
+    guard let showCell: TVShowTableViewCell = tableView.dequeueReusableCell(
+      withIdentifier: TVShowTableViewCell.reuseIdentifier,
+      for: indexPath) as? TVShowTableViewCell
       else { return UITableViewCell() }
     showCell.load(tvShow: currentTVShows[indexPath.row])
     return showCell

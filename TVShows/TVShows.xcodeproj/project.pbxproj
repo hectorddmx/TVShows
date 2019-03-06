@@ -28,6 +28,8 @@
 		D5470A8A22209EBC00F85243 /* UITabBarController+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5470A8922209EBC00F85243 /* UITabBarController+StatusBar.swift */; };
 		D5470A8C22209ED300F85243 /* UINavigationController+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5470A8B22209ED300F85243 /* UINavigationController+StatusBar.swift */; };
 		D55343102223736600A39EE6 /* TVShowsFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D553430F2223736600A39EE6 /* TVShowsFavoritesViewController.swift */; };
+		D560403D22304E3F002F9179 /* ShowsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D560403B22304E3F002F9179 /* ShowsTableViewCell.swift */; };
+		D560403E22304E3F002F9179 /* ShowsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D560403C22304E3F002F9179 /* ShowsTableViewCell.xib */; };
 		D59F2BAB2223966E00666224 /* TVShowStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59F2BAA2223966E00666224 /* TVShowStore.swift */; };
 		D5B11C122220B865006A2158 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B11C112220B865006A2158 /* NetworkingService.swift */; };
 		D5B8B52C2223B7CC00CEF223 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8B52B2223B7CC00CEF223 /* UIColor+Hex.swift */; };
@@ -88,6 +90,8 @@
 		D5470A8922209EBC00F85243 /* UITabBarController+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+StatusBar.swift"; sourceTree = "<group>"; };
 		D5470A8B22209ED300F85243 /* UINavigationController+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+StatusBar.swift"; sourceTree = "<group>"; };
 		D553430F2223736600A39EE6 /* TVShowsFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsFavoritesViewController.swift; sourceTree = "<group>"; };
+		D560403B22304E3F002F9179 /* ShowsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowsTableViewCell.swift; path = TVShows/UIClasses/ShowsTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		D560403C22304E3F002F9179 /* ShowsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ShowsTableViewCell.xib; path = TVShows/UIClasses/ShowsTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		D59F2BAA2223966E00666224 /* TVShowStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowStore.swift; sourceTree = "<group>"; };
 		D5B11C112220B865006A2158 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		D5B8B52B2223B7CC00CEF223 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
@@ -224,6 +228,8 @@
 				D553430F2223736600A39EE6 /* TVShowsFavoritesViewController.swift */,
 				D5B8B5322223BF7B00CEF223 /* TVShowDetailViewController.swift */,
 				D5B8B5342223D5C400CEF223 /* BaseViewController.swift */,
+				D560403B22304E3F002F9179 /* ShowsTableViewCell.swift */,
+				D560403C22304E3F002F9179 /* ShowsTableViewCell.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -398,6 +404,7 @@
 				D516BF74221F4098009E7358 /* LaunchScreen.storyboard in Resources */,
 				D5470A842220713B00F85243 /* TVShowTableViewCell.xib in Resources */,
 				D516BF71221F4098009E7358 /* Assets.xcassets in Resources */,
+				D560403E22304E3F002F9179 /* ShowsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +527,7 @@
 				D5470A272220583400F85243 /* TVShow.swift in Sources */,
 				D5470A8A22209EBC00F85243 /* UITabBarController+StatusBar.swift in Sources */,
 				D5470A252220580300F85243 /* Externals.swift in Sources */,
+				D560403D22304E3F002F9179 /* ShowsTableViewCell.swift in Sources */,
 				D5B8B5392223EF0300CEF223 /* String+HTML.swift in Sources */,
 				D5B8B52C2223B7CC00CEF223 /* UIColor+Hex.swift in Sources */,
 				D5B8B5372223DBF800CEF223 /* Colors.swift in Sources */,
