@@ -10,7 +10,7 @@ import UIKit
 
 /// UIImageView+Cache
 public extension UIImageView {
-  public func loadImage(fromURL url: String) {
+  func loadImage(fromURL url: String) {
     guard let imageURL: URL = URL(string: url) else {
       return
     }
@@ -50,7 +50,7 @@ public extension UIImageView {
     }
   }
   
-  public func transition(toImage image: UIImage?) {
+  func transition(toImage image: UIImage?) {
     UIView.transition(
       with: self, duration: 0.3,
       options: [.transitionCrossDissolve],

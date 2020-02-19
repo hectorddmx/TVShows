@@ -45,10 +45,7 @@ class NetworkingService {
     
     url = url.appendingPathComponent(pathComponent)
     task?.cancel()
-    task = URLSession.shared.dataTask(with: url) {
-      [weak self]
-      data, response, error in
-      guard let self = self else { return }
+    task = URLSession.shared.dataTask(with: url) { data, response, error in
       DispatchQueue.main.async {
         
         if let error = error {
