@@ -44,3 +44,15 @@ iOS Code Challenge for GonetUSA
 - Add sort by tags, by status, by year
 
 ## Mention anything that was asked but not delivered and why, and any additional comments.
+N/A
+
+## Demo (video)
+
+https://user-images.githubusercontent.com/303818/202013945-6fc4f497-840c-4274-8e20-e50123158ca6.mp4
+
+
+
+
+https://user-images.githubusercontent.com/303818/202013934-2b406831-cbfe-4e23-8499-f595242b3bcd.mp4
+
+
