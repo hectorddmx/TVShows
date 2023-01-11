@@ -72,6 +72,7 @@ As a user I want to see the detailed information of existing TV Shows and then I
 - **Language**: Kotlin or Java, Swift or Objective-C, Swift and Kotlin are preferred.
 - **Persistence**: Any type of persistence can be used. (Room, CoreData or Realm)
 - **Documentation**: http://www.tvmaze.com/api
+- **API Swagger**: https://static.tvmaze.com/apidoc 
 - **API**: http://api.tvmaze.com/shows
 
 --- 
