@@ -1,6 +1,8 @@
 # TVShows
 iOS Code Challenge for GonetUSA
 
+[Instructions](challenge.md)
+
 ## Main architecture decisions you've made and a quick explanation of why.
 
 ### Patterns and project structure
